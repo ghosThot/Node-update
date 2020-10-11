@@ -12,7 +12,7 @@ app.get("/api/list", async (req, res) => {
     // 分页查询
     const { page} = req.query
     try {
-        const col = mongo.col("fruits")
+        const col = mongo.col("animals")
         const total = await col.find().count()
         const fruits = await col
             .find()

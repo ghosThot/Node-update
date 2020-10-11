@@ -9,7 +9,8 @@ class Mongodb {
         this.conf = conf
         this.emmiter = new EventEmitter()
         this.client = new MongoClient(conf.url, {
-            useNewUrlParser: true
+            useNewUrlParser: true,
+            useUnifiedTopology: true
         })
         this.client.connect(err => {
             if (err) throw err

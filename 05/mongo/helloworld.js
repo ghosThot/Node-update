@@ -14,17 +14,20 @@ setTimeout(async () => {
     // 创建连接
     ret = await client.connect()
     const db = client.db('test')
+// console.log('连接成功',ret);
 
-    // const fruits = db.collection('fruits')
-    // ret = await fruits.insertOne({
-    //     name: '芒果',
-    //     price: 20.1
-    // })
-    // log('插入成功',ret)
+    const fruits = db.collection('animal')
+    console.log('fr',fruits);
+    
+    ret = await fruits.insertOne({
+        name: '芒果',
+        price: 20.1
+    })
+    log('插入成功',ret)
 
     // // 查询文档
-    // ret = await fruits.findOne()
-    // console.log('find:',ret)
+    ret = await fruits.find({}).toArray()
+    console.log('find:',JSON.stringify(ret))
 
     // // 更新文档
     // ret = await fruits.updateOne({name:'芒果'},{
@@ -55,7 +58,7 @@ setTimeout(async () => {
             }
         }
     }).toArray();
-    console.log("天安门附近地铁站", r);
+    // console.log("天安门附近地铁站", r);
 
 
     client.close()

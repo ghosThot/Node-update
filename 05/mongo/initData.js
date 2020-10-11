@@ -1,10 +1,11 @@
 const mongodb = require('./models/db')
 mongodb.once('connect', async () => {
-    const col = mongodb.col('fruits')
+    const col = mongodb.col('animals')
+    
     // 删除已存在
     await col.deleteMany()
     const data = new Array(100).fill().map((v, i) => {
-        return { name: "XXX" + i, price: i, category: Math.random() > 0.5 ? '蔬菜' : '水果' }
+        return { name: "XXX" + i, price: i, category: Math.random() > 0.5 ? '水里的' : '陆地的' }
     })
 
     // 插入
